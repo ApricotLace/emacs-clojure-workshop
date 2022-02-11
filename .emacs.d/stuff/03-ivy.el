@@ -19,7 +19,10 @@
 ;;
 ;;; Code:
 
-(use-package ivy)
+(use-package ivy
+  :ensure t
+  :config
+  (ivy-mode))
 
 (provide '03-ivy)
 ;;; 03-ivy.el ends here
