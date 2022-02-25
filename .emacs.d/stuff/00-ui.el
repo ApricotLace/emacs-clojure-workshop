@@ -26,16 +26,19 @@
 (setq inhibit-startup-screen t)
 (setq scroll-step 1)
 (setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq create-lockfiles nil)
 
 ;;; Setup
 
 (use-package tao-theme
   :ensure t
-  :config
-  (load-theme 'tao-yang t)
+  :init
   (setq tao-theme-use-sepia nil)
   (setq tao-theme-use-boxes nil)
-  (set-face-attribute 'default nil :family "Iosevka" :height 220)) 
+  :config
+  (load-theme 'tao-yang t)
+  (set-face-attribute 'default nil :family "Iosevka" :height 120)) 
 
 (provide '00-ui)
 ;;; 00-ui.el ends here

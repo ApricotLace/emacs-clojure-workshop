@@ -5,8 +5,11 @@
 
 (leader-def
   "f" '(:ignore t :which-key "file")
-  "f f" '(find-file :which-key "find file")
+  "f f" '(counsel-find-file :which-key "find file")
   "f s" '(save-buffer :which-key "save file")) 
+
+(leader-def
+  "/" 'counsel-grep)
 
 (leader-def
   "k" '(:ignore t :which-key "sexp")
@@ -36,7 +39,29 @@
  "C-j" 'ivy-next-line
  "C-k" 'ivy-previous-line) 
 
-(when nil
-  (setq which-key-idle-delay 0.5)
-  (setq which-key-idle-secondary-delay 0)
-  )
+(leader-def
+  :keymaps 'emacs-lisp-mode-map
+  "m" '(:ignore t :which-key "emacs lisp")
+  "m e" '(:ignore t :which-key "eval")
+  "m e e" 'eval-last-sexp
+  "m e b" 'eval-buffer)
+
+(leader-def
+  :keymaps 'clojure-mode-map
+  "m" '(:ignore t :which-key "clojure")
+  "m e" '(:ignore t :which-key "eval")
+  "m e e" 'cider-eval-last-sexp
+  "m c" 'cider-connect-clj
+  "m e b" 'cider-eval-buffer)
+
+(general-define-key
+ "<escape>" 'keyboard-escape-quit)
+
+(leader-def
+  ;;"p" 'projectile-command-map
+  "p" '(:ignore t :which-key "project")
+  "p f" 'projectile-find-file)
+
+
+(setq which-key-idle-delay 0.5)
+(setq which-key-idle-secondary-delay 0)
