@@ -25,15 +25,17 @@
 (menu-bar-mode -1)
 (setq inhibit-startup-screen t)
 (setq scroll-step 1)
+(setq make-backup-files nil)
 
 ;;; Setup
 
-(use-package solarized-theme
+(use-package tao-theme
   :ensure t
   :config
-  (load-theme 'solarized-light t)
-
-  (set-face-attribute 'default nil :family "Iosevka" :height 300))
+  (load-theme 'tao-yang t)
+  (setq tao-theme-use-sepia nil)
+  (setq tao-theme-use-boxes nil)
+  (set-face-attribute 'default nil :family "Iosevka" :height 220)) 
 
 (provide '00-ui)
 ;;; 00-ui.el ends here
