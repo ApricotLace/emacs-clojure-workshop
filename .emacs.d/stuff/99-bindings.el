@@ -9,7 +9,7 @@
   "f s" '(save-buffer :which-key "save file")) 
 
 (leader-def
-  "/" 'counsel-grep)
+  "/" 'counsel-rg)
 
 (leader-def
   "k" '(:ignore t :which-key "sexp")
