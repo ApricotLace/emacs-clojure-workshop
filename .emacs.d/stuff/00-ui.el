@@ -31,6 +31,12 @@
 
 ;;; Setup
 
+(use-package all-the-icons
+  :ensure t
+  :if (display-graphic-p)
+  
+  )
+
 (use-package tao-theme
   :ensure t
   :init
