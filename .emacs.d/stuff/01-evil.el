@@ -24,5 +24,9 @@
   :config
   (evil-mode 1))
 
+(use-package evil-escape
+  :ensure t
+  :config (evil-escape-mode))
+
 (provide '01-evil)
 ;;; 01-evil.el ends here

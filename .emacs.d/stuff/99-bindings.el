@@ -66,8 +66,11 @@
   ;;"p" 'projectile-command-map
   "p" '(:ignore t :which-key "project")
   "p f" '(projectile-find-file :which-key "find file in project")
+  "p a" '(projectile-toggle-between-implementation-and-test :which-key "impl <-> test")
   "p p" '(projectile-switch-project :which-key "switch project"))
 
+(leader-def
+  "SPC" '(execute-extended-command :which-key "M-x"))
 
 (setq which-key-idle-delay 0.5)
 (setq which-key-idle-secondary-delay 0)
