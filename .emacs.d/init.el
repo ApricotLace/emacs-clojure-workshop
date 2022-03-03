@@ -1,40 +1,20 @@
-;;; init.el -*- lexical-binding: t; -*-
-;;
-;; Copyright (C) 2022 Evgeny Mukha
-;;
-;; Author: Evgeny Mukha <https://github.com/ghrp>
-;; Maintainer: Evgeny Mukha <profunctorlense@gmail.com>
-;; Created: February 11, 2022
-;; Modified: February 11, 2022
-;; Version: 0.0.1
-;; Keywords: abbrev bib c calendar comm convenience data docs emulations extensions faces files frames games hardware help hypermedia i18n internal languages lisp local maint mail matching mouse multimedia news outlines processes terminals tex tools unix vc wp
-;; Homepage: https://github.com/ghrp/init
-;; Package-Requires: ((emacs "24.3"))
-;;
-;; This file is not part of GNU Emacs.
-;;
-;;; Commentary:
-;;
-;;
-;;
-;;; Code:
-
-;;; Setup package managers
-
+;; Import Emacs package manager
 (require 'package)
+;; Add largest package repository (Melpa)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/"))
+;; Initialize Emacs package manager
 (package-initialize)
 
+;; Pull package list on first Emacs start
 (unless package-archive-contents
   (package-refresh-contents))
 
-  ;; Initialize use-package on non-Linux platforms
+;; Install use-package -- convenient wrapper for managing packages
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
-;;; Read separate parts of your conf
-
+;; Read and execute all .el files in .emacs.d/stuff
 (let* ((stuff-dir (concat (file-name-directory load-file-name) "/stuff"))
        (load-it (lambda (f) (load-file (concat (file-name-as-directory stuff-dir) f)))))
   (mapc load-it (directory-files stuff-dir nil "\\.el$")))
@@ -48,7 +28,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773" default))
- '(package-selected-packages '(counsel cider tao-theme ivy use-package)))
+ '(package-selected-packages '(company flycheck counsel cider tao-theme ivy use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -54,13 +54,19 @@
   "m c" 'cider-connect-clj
   "m e b" 'cider-eval-buffer)
 
+(leader-def
+  "b" '(:ignore t :which-key "buffer")
+  "b b" '(ivy-switch-buffer :which-key "switch buffer")
+  "b l" '(evil-switch-to-windows-last-buffer :which-key "last buffer"))
+
 (general-define-key
  "<escape>" 'keyboard-escape-quit)
 
 (leader-def
   ;;"p" 'projectile-command-map
   "p" '(:ignore t :which-key "project")
-  "p f" 'projectile-find-file)
+  "p f" '(projectile-find-file :which-key "find file in project")
+  "p p" '(projectile-switch-project :which-key "switch project"))
 
 
 (setq which-key-idle-delay 0.5)
